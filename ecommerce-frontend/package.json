@@ -11,6 +11,7 @@
     "build:analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.51.0",
     "autoprefixer": "^10.4.21",
     "axios": "^1.10.0",
     "lucide-react": "^0.460.0",
