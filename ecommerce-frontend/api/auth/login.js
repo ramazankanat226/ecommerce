@@ -1,8 +1,18 @@
 import { supabase } from '../../lib/supabase';
 
 export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL || 'http://localhost:3000');
+  // CORS headers - localhost'u da kabul et
+  const allowedOrigins = [
+    'https://ecommerce-snowy-phi.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:3001'
+  ];
+  
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
